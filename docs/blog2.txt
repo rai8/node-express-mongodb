@@ -1,1 +1,3 @@
 hello,Krishna
+
+middleware is any code that runs between getting a request and sending a response
