@@ -8,9 +8,9 @@ app.get('/', (req, res) => {
   //res.send(`<p>Home Page</p>`)
   //res.sendFile('./views/index.html', { root: __dirname })
   const blogs = [
-    /*  { title: 'Yoshi finds egs', snippet: 'Lorem ipsum sit amet consectetur' },
+    { title: 'Yoshi finds egs', snippet: 'Lorem ipsum sit amet consectetur' },
     { title: 'Mario finds stars', snippet: 'Lorem ipsum sit amet consectetur' },
-    { title: 'How to defeat browser', snippet: 'Lorem ipsum sit amet consectetur' }, */
+    { title: 'How to defeat browser', snippet: 'Lorem ipsum sit amet consectetur' },
   ]
   res.render('index', {
     title: 'Home',

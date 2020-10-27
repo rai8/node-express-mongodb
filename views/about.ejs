@@ -1,24 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Blog | <%= title%></title>
-  </head>
+  <%- include('./partials/head.ejs') %>
   <body>
-    <nav>
-      <div class="site-title">
-        <a href="/"><h1>Rytone</h1></a>
-        <a>Learning site</a>
-      </div>
-      <div>
-        <ul>
-          <li><a href="/">Blogs</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/blogs/create">New Blog</a></li>
-        </ul>
-      </div>
-    </nav>
+    <%- include('./partials/nav.ejs') %>
     <div class="about content">
       <h2>About us</h2>
       <p>
@@ -37,5 +21,6 @@
         voluptas magnam a?
       </p>
     </div>
+    <%- include('./partials/footer.ejs') %>
   </body>
 </html>
