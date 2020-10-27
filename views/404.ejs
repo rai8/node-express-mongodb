@@ -9,7 +9,7 @@
     <nav>
       <div class="site-title">
         <a href="/"><h1>Rytone</h1></a>
-        <a>Learning site </a>
+        <a>Learning site</a>
       </div>
       <div>
         <ul>
@@ -19,15 +19,6 @@
         </ul>
       </div>
     </nav>
-    <div class="blogs content">
-      <h2>All blogs</h2>
-      <% if (blogs.length > 0){ %> <%blogs.forEach(blog=>{ %>
-      <h3 class="title"><%= blog.title %></h3>
-      <p class="snippet"><%= blog.snippet %></p>
-
-      <% })%> <% } else {%>
-      <p>The are no blogs to display</p>
-      <% } %>
-    </div>
+    <div class="not-found content">Oops, Page Not Found :(</div>
   </body>
 </html>
