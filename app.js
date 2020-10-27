@@ -1,8 +1,22 @@
 const express = require('express')
 const app = express()
+require('dotenv').config()
 const morgan = require('morgan')
+const mongoose = require('mongoose')
+const Blog = require('./models/blog')
 const PORT = process.env.PORT || 3000
 
+//connect to mongodb
+//const dbURI = 'mongodb+srv://hytonne:Spacenet98@nodetut.rnors.mongodb.net/nodetut?retryWrites=true&w=majority'
+const DB_URI = process.env.dbURI
+mongoose
+  .connect(DB_URI, { useUnifiedTopology: true, useNewUrlParser: true })
+  .then(result =>
+    app.listen(PORT, () => {
+      console.log(`---------server is running on port ${PORT}----------`)
+    })
+  )
+  .catch(err => console.log(err))
 //seeting up to use ejs
 app.set('view engine', 'ejs')
 
@@ -17,6 +31,26 @@ app.use(morgan('dev'))
   console.log('method', req.method)
   next()
 }) */
+app.get('/add-blog', (req, res) => {
+  const blog = new Blog({
+    title: 'new blog',
+    snippet: 'about my blog',
+    body: 'more about my blog see yaaaaaaal',
+  })
+
+  //save to the databse
+  blog
+    .save()
+    .then(results => res.send(results))
+    .catch(err => console.log(err))
+})
+
+//get all blogs documents
+app.get('/all-blogs', (req, res, next) => {
+  Blog.find()
+    .then(results => res.send(results))
+    .catch(err => console.log(err))
+})
 
 app.get('/', (req, res) => {
   //res.send(`<p>Home Page</p>`)
@@ -56,6 +90,7 @@ app.use((req, res) => {
   })
 })
 // listening to server
-app.listen(PORT, () => {
+/* app.listen(PORT, () => {
   console.log(`---------server is running on port ${PORT}----------`)
 })
+ */

@@ -1,3 +1,6 @@
 hello,Krishna
 
 middleware is any code that runs between getting a request and sending a response
+collection ni kama tables, document ni kama records- stored in json format
+
+schema refers the structure of our data, properties it should have
